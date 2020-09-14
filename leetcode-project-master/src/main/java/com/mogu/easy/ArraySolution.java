@@ -20,22 +20,16 @@ public class ArraySolution {
      * @return
      */
     public int removeDuplicates(int[] nums) {
-        int n = 0;
-        for (int i = 0; i < nums.length - 1; i++) {
-            if (nums[i] == nums[i + 1]) {
-                swap(nums, i + 1);
-                n++;
-            }
+        int i,j=0;
+        int len=nums.length;
+        for(i=0; i<len; i++)
+        {
+        	if(nums[i]!=nums[j])
+        	{
+        		j++;
+        		nums[j]=nums[i];
+        	}
         }
-        ArrayUtils.printArray(nums);
-        return nums.length - n;
-    }
-
-    private void swap(int[] nums, int k) {
-        for (int j = k; j < nums.length - 1; j++) {
-            int temp = nums[j];
-            nums[j] = nums[j + 1];
-            nums[j + 1] = temp;
-        }
+        return j+1;
     }
 }
